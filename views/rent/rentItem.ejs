@@ -1,0 +1,114 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item blue white-text flow-text">
+          <%= person.person %><a href="/rent/add/<%= person._id %>" class="secondary-content"
+            ><i class="material-icons white-text">add</i></a
+          >
+        </div>
+      </div>
+
+
+
+      <!-- Rent Collection -->
+      <% if (locals.rents == null) { %>
+        <p class="red-text">No Rents</p>
+      <% } else { %>
+
+      <% rents.forEach(rent => { %>
+
+
+      <div class="collection z-depth-1">
+        <!-- Collectin 1 -->
+        <div
+          class="collection-item active  grey lighten-4 blue-text "
+        >
+          <span class="flow-text">Rent ( <%= rent.rent %> )</span>
+
+          <a class="secondary-content blue-text" href="/rent/item/<%= rent._id %>">
+              <i class="material-icons yellow-text text-darken-2">edit</i>
+            </a>
+           <span class="secondary-content blue-text"><%= rent.date.toDateString() %>
+            &nbsp;&nbsp;
+          </span>
+
+
+        </div>
+
+
+        <!-- Collectin 2 -->
+
+        <div  class="collection-item ">
+          <p><span class="blue-text text-darken-4">Electricity</span>
+          ( <%= rent.eend -  rent.estart %>  )</p>
+
+          <p>
+            <span class="blue-text">Start: </span><%= rent.estart %> Units&nbsp; &nbsp;
+            <span class="blue-text">End: </span><%= rent.eend %> Units
+          </p>
+          <p><span class="blue-text">Price: &nbsp;</span>Rs <%= (rent.eend -  rent.estart) * rent.unit %></p>
+        </div>
+        <!-- Collectin 3 -->
+
+        <div " class="collection-item ">
+          <p><span class="blue-text text-darken-4">Water</span>
+             ( <%= rent.wend - rent.wstart %>  )</p>
+
+          <p>
+            <span class="blue-text">Start: </span><%= rent.wstart %>  Units &nbsp; &nbsp;
+            <span class="blue-text">End: </span><%= rent.wend %>  Units
+          </p>
+          <p><span class="blue-text">Price: &nbsp;</span>Rs <%= (rent.wend - rent.wstart) * rent.unit %></p>
+        </div>
+
+        <!-- Collection 5 -->
+        <div  class="collection-item">
+          <span class="blue-text text-darken-4">Price Per Unit:</span> &nbsp; Rs: <%= rent.unit %>
+      </div>
+        <!-- Collection 5 -->
+        <div  class="collection-item">
+            <span class="blue-text text-darken-4">Internet:</span> &nbsp; &nbsp; Rs: <%= rent.internet %>
+        </div>
+
+
+
+            <!-- Collection 7 -->
+        <div  class="collection-item">
+                <span class="blue-text text-darken-4">Garbage:</span> &nbsp;  Rs: <%= rent.garbage %>
+            </div>
+            <!-- Collectin 1 -->
+        <div
+        class="collection-item active  grey lighten-5 "
+      >
+        <span class=" blue-text text-darken-4">Total: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="black-text">Rs:
+          <%= (rent.eend - rent.estart) * rent.unit + (rent.wend - rent.wstart) * rent.unit + rent.internet + rent.garbage + rent.rent %>
+
+        </span></span>
+
+
+        <form action="/rent/item/<%= rent._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="secondary-content"><i class="material-icons red-text">delete</i></button>
+        </form>
+
+
+
+
+      </div>
+      </div>
+      <% }) %>
+      <% } %>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

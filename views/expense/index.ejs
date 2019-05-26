@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item yellow accent-4 white-text flow-text">
+          Expense<a href="/expense/add" class="secondary-content"
+            ><i class="material-icons white-text">add</i></a
+          >
+        </div>
+      </div>
+
+      <!-- Sub Collection -->
+      <% if (expenses.length <= 0) { %>
+      <p class="red-text">No Expense</p>
+      <% } else { %> <% expenses.forEach(expense => { %>
+
+      <div class="collection">
+        <div class="collection-item white ">
+          <a
+            href="/expense/item/<%= expense.id %>"
+            class="yellow-text text-darken-3"
+            ><%= expense.title %> ( <%= expense.budget %> )</a
+          >
+          <form
+            action="/expense/delete/<%= expense._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button class="secondary-content" type="submit">
+              <i class="material-icons red-text">delete</i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <% }) %> <% } %>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

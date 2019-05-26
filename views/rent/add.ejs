@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+    </ul>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item blue white-text flow-text">
+          Add Rent<a href="#!" class="secondary-content"></a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="card-panel grey lighten-4">
+        <!-- Form -->
+        <form action="/rent/add/<%= rentId %>" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="rent" type="number" name="rent" required />
+              <label for="rent">Rent Amount</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="estart"
+                type="number"
+                name="estart"
+                required
+              />
+              <label for="estart">Electricity Start Unit</label>
+            </div>
+            <div class="input-field col s6">
+                <input
+                  id="eend"
+                  type="number"
+                  name="eend"
+                  required
+                />
+                <label for="eend">Electricity End Unit</label>
+              </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s6">
+                <input
+                  id="wstart"
+                  type="number"
+                  name="wstart"
+                  required
+                />
+                <label for="wstart">Water Start Unit</label>
+              </div>
+              <div class="input-field col s6">
+                  <input
+                    id="wend"
+                    type="number"
+                    name="wend"
+                    required
+                  />
+                  <label for="wend">Water End Unit</label>
+                </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="internet" type="number" name="internet" />
+              <label for="internet">Internet (Optional)</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <input id="unit" type="number" name="unit" required />
+                <label for="unit">Price Per Unit</label>
+              </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="garbage" type="number" name="garbage" />
+              <label for="garbage">Garbage (Optional)</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l12">
+              <input type="submit" value="Add Rent" class="btn blue left" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

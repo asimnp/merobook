@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item teal accent-4 white-text flow-text">
+          Add Note
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="card-panel grey lighten-4">
+        <!-- Form -->
+        <form action="/note/add" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" name="title" required />
+              <label for="title">Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row">
+              <div class="input-field col s12 ">
+                <textarea
+                  id="description"
+                  class="materialize-textarea"
+                  name="description"
+                ></textarea>
+                <label for="description">Description</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l12">
+              <input
+                type="submit"
+                value="Add Note"
+                class="btn teal accent-4 left"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<html lang="en">
+  <head>
+    <% include partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <% include partials/sideNav.ejs %>
+
+    <!-- side nav -->
+    <ul id="side-menu" class="sidenav side-menu">
+      <li>
+        <a class="subheader"
+          ><span class="mero">Mero</span> <span class="book">Book</span></a
+        >
+      </li>
+      <li><a href="/home" class="waves-effect">Home</a></li>
+      <li><a href="/rent" class="waves-effect">Rent</a></li>
+      <li><a href="/expense" class="waves-effect">Expense</a></li>
+      <li><a href="/note" class="waves-effect">Note</a></li>
+      <li><div class="divider"></div></li>
+      <li>
+        <a href="/pages/contact.html" class="waves-effect">
+          <i class="material-icons">exit_to_app</i>Logout</a
+        >
+      </li>
+    </ul>
+
+    <br />
+    <div class="container">
+      <!-- Rent -->
+      <ul class="collapsible popout">
+        <li>
+          <div class="collapsible-header blue-text">
+            <i class="material-icons">home</i>Rent
+          </div>
+          <div class="collapsible-body">
+            <span class="grey-text text-darken-2 flow-text"
+              >Rent feature is use to manage your home rent.</span
+            >
+            <h6>Step to get started</h6>
+            <p>
+              1) Click the below <span class="blue-text">RENT</span> button.
+            </p>
+            <p>2) Click the <span class="blue-text">plus (+)</span> button.</p>
+            <p>
+              3) Enter the name of the rent person. And click
+              <span class="blue-text">ADD RENT USER</span> button.
+            </p>
+            <p>
+              4) Repeat the <span class="blue-text">step 3</span> , if you have
+              more than one rent person.
+            </p>
+            <p>5) Click the <span class="blue-text">rent person name</span>.</p>
+            <p>6) Click the <span class="blue-text">plus (+)</span> button.</p>
+            <p>
+              7) Fill the form. Then click
+              <span class="blue-text">ADD RENT</span> button.
+            </p>
+            <br /><br />
+            <a href="/rent" class="btn btn-small blue">Rent</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Expense -->
+      <ul class="collapsible popout">
+        <li>
+          <div class="collapsible-header yellow-text text-accent-4 ">
+            <i class="material-icons">local_grocery_store</i>Expense
+          </div>
+          <div class="collapsible-body">
+            <span class="grey-text text-darken-2 flow-text"
+              >Expense feature is use to manage your use of money.</span
+            >
+            <h6>Step to get started</h6>
+            <p>
+              1) Click the below
+              <span class="yellow-text text-darken-2">EXPENSE</span> button.
+            </p>
+            <p>
+              2) Click the
+              <span class="yellow-text text-darken-2">plus (+)</span> button.
+            </p>
+            <p>
+              3) Enter the title (Salary, Rent) and the amount. And click
+              <span class="yellow-text text-darken-2">ADD RENT</span> button.
+            </p>
+            <p>
+              4) Click the
+              <span class="yellow-text text-darken-2">expense title</span>.
+            </p>
+            <p>
+              5) Click the
+              <span class="yellow-text text-darken-2">plus (+)</span> button.
+            </p>
+            <p>
+              6) Fill the form and click
+              <span class="yellow-text text-darken-2">ADD EXPENSE ITEM</span>.
+            </p>
+
+            <br /><br />
+            <a href="/expense" class="btn btn-small yellow accent-4">Expense</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Note -->
+      <ul class="collapsible popout">
+        <li>
+          <div class="collapsible-header teal-text text-accent-4 text-darken-3">
+            <i class="material-icons">assignment</i>Note
+          </div>
+          <div class="collapsible-body">
+            <span class="grey-text text-darken-2 flow-text"
+              >Note feature helps to keep quick notes.
+            </span>
+            <h6>Step to get started</h6>
+            <p>
+              1) Click the
+              <span class="teal-text text-accent-4">NOTE</span> button.
+            </p>
+            <p>
+              2) Click the
+              <span class="teal-text text-accent-4">plus (+)</span> button.
+            </p>
+            <p>
+              3) Fill the form and click
+              <span class="teal-text text-accent-4">ADD NOTE</span> button.
+            </p>
+            <br /><br />
+            <a href="/note" class="btn btn-small teal accent-4">Note</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <% include partials/footer.ejs %>
+  </body>
+</html>

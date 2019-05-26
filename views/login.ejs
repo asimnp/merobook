@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <% include partials/header.ejs %>
+    <title>Mero Book | Log In</title>
+  </head>
+  <body>
+    <h1 class="center">
+      <span class="mero">Mero</span> <span class="book">Book</span>
+    </h1>
+    <div class="container">
+      <!-- Sign Up Card -->
+
+      <!-- Error -->
+      <% if (error) { %>
+      <p class="red white-text center"><%= error %></p>
+
+      <% } %>
+
+      <div class="card-panel grey lighten-4">
+        <h5 class="mero">Log In</h5>
+        <!-- Form -->
+        <form action="/auth/login" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                class="validate"
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                class="validate"
+                required
+              />
+              <label for="password">Password</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l12">
+              <input type="submit" value="log in" class="btn blue left" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Sign Up Button -->
+      <div class="row">
+        <div class="col l12 m12 s12">
+          <p class="center book">Or</p>
+          <br />
+        </div>
+        <div class="col l12 m12 s12">
+          <a href="/auth/signup" class="btn btn-block white blue-text"
+            >sign up</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

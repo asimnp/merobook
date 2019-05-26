@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item yellow accent-4 white-text flow-text">
+          <%= expense.title %> ( <%= expense.budget %> )<a
+            href="/item/add/<%= expense._id %>"
+            class="secondary-content"
+            ><i class="material-icons white-text">add</i></a
+          >
+        </div>
+      </div>
+      <ul class="collection">
+        <li class="collection-item">
+          <div class="yellow-text text-darken-3">
+            Current balance:
+            <span class="black-text"> Rs <%= expense.budget - sum %></span>
+          </div>
+        </li>
+      </ul>
+      <% if (items.length <= 0) { %>
+      <p class="red-text">Not Item</p>
+      <% } else { %> <% items.forEach(item => { %>
+
+      <ul class="collection grey lighten-2">
+        <li class="collection-item">
+          <span class="yellow-text text-darken-3"><%= item.item %></span>
+          <span class="secondary-content"><%= item.date.toDateString() %></span>
+        </li>
+        <li class="collection-item">
+          <div>
+            <%= item.price %>
+            <form
+              action="/item/delete/<%= item._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button class="secondary-content">
+                <i class="material-icons red-text">delete</i>
+              </button>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <% }) %> <% } %>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

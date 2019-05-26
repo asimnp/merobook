@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item yellow accent-4 white-text flow-text">
+          Add Expense
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="card-panel grey lighten-4">
+        <!-- Form -->
+        <form action="/item/add/<%= id %>" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="item" type="text" name="item" required />
+              <label for="item">Item</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="price" type="number" name="price" required />
+              <label for="price">Price</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l12">
+              <input
+                type="submit"
+                value="Add Expense item"
+                class="btn yellow accent-4  left"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

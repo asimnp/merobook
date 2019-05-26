@@ -1,0 +1,104 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+    </ul>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item yellow accent-4 white-text flow-text">
+          Add Rent
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="card-panel grey lighten-4">
+        <!-- Form -->
+        <form action="/rent/item/<%= rent._id %>?_method=PUT" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="rent" type="number" name="rent" required value="<%= rent.rent %>" />
+              <label for="rent">Rent</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="estart"
+                type="number"
+                name="estart"
+                value="<%= rent.estart %>"
+                required
+              />
+              <label for="estart">E Start</label>
+            </div>
+            <div class="input-field col s6">
+                <input
+                  id="eend"
+                  type="number"
+                  name="eend"
+                  value="<%= rent.eend %>"
+                  required
+                />
+                <label for="eend">E End</label>
+              </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s6">
+                <input
+                  id="wstart"
+                  type="number"
+                  name="wstart"
+                  value="<%= rent.wstart %>"
+                  required
+                />
+                <label for="wstart">W Start</label>
+              </div>
+              <div class="input-field col s6">
+                  <input
+                    id="wend"
+                    type="number"
+                    name="wend"
+                    value="<%= rent.wend %>"
+                    required
+                  />
+                  <label for="wend">W End</label>
+                </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="internet" type="number" name="internet" value="<%= rent.internet %>" />
+              <label for="internet">Internet</label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <input id="unit" type="number" name="unit" value="<%= rent.unit %>" required />
+                <label for="unit">Price Per Unit</label>
+              </div>
+            </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="garbage" type="number" name="garbage" value="<%= rent.garbage %>" />
+              <label for="garbage">Garbage</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col l12">
+              <input type="submit" value="Edit Rent" class="btn yellow accent-4 left" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

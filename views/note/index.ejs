@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <% include ../partials/header.ejs %>
+    <title>Mero Book</title>
+  </head>
+  <body class="grey lighten-4">
+    <!-- top nav -->
+    <% include ../partials/sideNav.ejs %>
+
+    <br />
+    <div class="container">
+      <!-- Main Collection -->
+      <div class="collection z-depth-1">
+        <div class="collection-item teal accent-4 white-text flow-text">
+          Note<a href="/note/add" class="secondary-content"
+            ><i class="material-icons white-text">add</i></a
+          >
+        </div>
+      </div>
+
+      <!-- Note -->
+      <ul class="collapsible z-depth-0">
+        <% notes.forEach(note => { %>
+
+        <li>
+          <div class="collapsible-header teal-text">
+            <%= note.title %>
+          </div>
+          <div class="collapsible-body">
+            <span class="grey-text text-darken-2"><%= note.description %></span>
+            <br />
+            <br />
+            <span class=" grey-text text-darken-5"
+              ><%= note.date.toDateString() %></span
+            >
+            <form
+              action="/note/delete/<%= note._id %>?_method=DELETE"
+              method="POST"
+            >
+              <button type="submit" class="right">
+                <i class="material-icons red-text">delete</i>
+              </button>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

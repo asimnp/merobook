@@ -1,0 +1,92 @@
+<html lang="en">
+  <head>
+    <% include partials/header.ejs %>
+    <title>Mero Book | Sign Up</title>
+  </head>
+  <body>
+    <h1 class="center">
+      <span class="mero">Mero</span> <span class="book">Book</span>
+    </h1>
+    <div class="container">
+      <!-- Sign Up Card -->
+
+      <!-- Error -->
+      <% if (error) { %>
+      <p class="red white-text center"><%= error %></p>
+
+      <% } %>
+      <div class="card-panel grey lighten-4">
+        <h5 class="mero">Sign Up</h5>
+        <!-- Form -->
+        <form action="/auth/signup" method="POST">
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                class="validate"
+              />
+              <label for="name">Full Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                class="validate"
+              />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                class="validate"
+                required
+              />
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                id="confirm"
+                type="password"
+                name="confirm"
+                class="validate"
+                required
+              />
+              <label for="confirm">Confrim</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col l12">
+              <input type="submit" value="Sign UP" class="btn blue left" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Login Button -->
+      <div class="row">
+        <div class="col l12 m12 s12">
+          <p class="center book">Or</p>
+          <br />
+        </div>
+        <div class="col l12 m12 s12">
+          <a href="/auth/login" class="btn btn-block white blue-text">login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
