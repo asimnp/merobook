@@ -14,7 +14,7 @@ const app = express();
 // View Engine Setup
 app.set("view engine", "ejs");
 
-// Experss Body Parser
+// Express Body Parser
 app.use(express.urlencoded({ extended: false }));
 
 // Public Folder
